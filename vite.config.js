@@ -1,6 +1,10 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
+  // Relative asset URLs so the production build runs anywhere offline: file://,
+  // a USB stick, or any sub-path static server — not just the domain root.
+  // (The default '/' breaks all three: /assets/*.js 404s off-root.)
+  base: './',
   // Bind IPv4 explicitly: the default `localhost` binds ::1 only on macOS,
   // which the capture harness (127.0.0.1) cannot reach.
   // `hmr: false` when the capture harness owns the server (OW_NO_HMR=1): a file

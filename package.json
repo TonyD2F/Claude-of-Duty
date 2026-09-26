@@ -5,6 +5,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview --port 4173",
+    "check:offline": "node tools/offline-check.mjs",
     "shot": "node tools/capture.mjs"
   },
   "author": "",

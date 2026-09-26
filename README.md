@@ -17,6 +17,22 @@ npm run dev          # http://127.0.0.1:5173
 Click the canvas to lock the cursor. WASD move, mouse aim, LMB fire, RMB ADS,
 R reload, Shift sprint, Ctrl crouch, Space jump, Q/E lean, Esc release.
 
+## 100% offline
+
+The game has zero runtime network dependencies: no CDN imports, no webfonts,
+no fetched models/textures/audio — everything procedural is generated in code
+and `three` is bundled. The production build is a self-contained `dist/`
+(two files) that runs with the network fully disabled — verified by booting it
+in Chromium with every non-localhost request blocked (`__READY__` reached,
+zero failed requests).
+
+```bash
+npm install          # network needed once, to fetch npm deps
+npm run build        # self-contained dist/, relative asset paths
+npm run check:offline  # gate: fails on any remote URL or rooted asset path
+npx vite preview --port 4173   # or: npx serve dist — then go airplane mode
+```
+
 ## What's in it
 
 | subsystem | what it does |
